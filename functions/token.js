@@ -1,10 +1,10 @@
 const Twilio = require('twilio');
+const { v4: uuidv4 } = require('uuid');
 
 const AccessToken = Twilio.jwt.AccessToken;
 
 exports.handler = function(context, event, callback) {
     const {
-        username,
         room,
     } = event;
 
@@ -13,7 +13,7 @@ exports.handler = function(context, event, callback) {
         context.API_KEY,
         context.API_SECRET,
         {
-            identity: username,
+            identity: uuidv4(),
         },
     );
     token.addGrant(new AccessToken.VideoGrant({
