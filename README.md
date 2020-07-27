@@ -71,7 +71,7 @@ Response example:
 
 1. `API_KEY`: Used to grant access tokens - find this [in the console](https://www.twilio.com/console/project/api-keys)
 1. `API_SECRET`: Also used to grant access tokens - [and also found in the console](https://www.twilio.com/console/project/api-keys)
-1. `INVITE_BASE_URL`: The base URL sent as part of the Virtual Visit invitation. This is the URL where your [web app](https://github.com/waveformhealth/virtualvisit-web) will be hosted. For local testing, set this to your computer's local IP (e.g. `192.168.0.1`) which can be retrieved by running: `hostname -I`
+1. `INVITE_BASE_URL`: The base URL sent as part of the Virtual Visit invitation. This is the URL where your [web app](https://github.com/waveformhealth/virtualvisit-web) will be hosted. For local testing, set this to your computer's local IP (e.g. `http://192.168.0.1`) which can be retrieved by running: `hostname -I`
 1. `PHONE_NUMBER`: A Twilio phone number - you can [get one here](https://www.twilio.com/console/phone-numbers/incoming)
 
 ## Local Testing
