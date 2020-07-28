@@ -19,9 +19,16 @@ exports.handler = function(context, event, callback) {
     token.addGrant(new AccessToken.VideoGrant({
         room,
     }));
-    
-    callback(null, {
+
+    const response = new Twilio.Response();
+    response.appendHeader("Content-Type", "application/json");
+    // TODO: specify origin
+    response.appendHeader("Access-Control-Allow-Origin", "*");
+    response.appendHeader("Access-Control-Allow-Methods", "GET");
+    response.setBody({
         token: token.toJwt(),
     });
+
+    callback(null, response);
   };
   
