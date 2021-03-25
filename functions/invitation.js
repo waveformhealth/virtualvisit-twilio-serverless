@@ -6,11 +6,16 @@ exports.handler = async function(context, event, callback) {
         room,
     } = event;
 
-    await twilioClient.messages.create({
-        body: `You've been invited to a Virtual Visit: ${context.INVITE_BASE_URL}?room=${room}`,
-        to: phone,
-        from: context.PHONE_NUMBER,
-    });
+    try {
+        await twilioClient.messages.create({
+            body: `You've been invited to a Virtual Visit: ${context.INVITE_BASE_URL}?room=${room}`,
+            to: phone,
+            from: context.PHONE_NUMBER,
+        });
+    } catch (err) {
+        console.log(err);
+        callback(err);
+    }
 
     callback();
   };
